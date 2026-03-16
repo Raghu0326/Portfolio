@@ -87,22 +87,23 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>FRONTEND</h3>
-              <h4>Building Interactive UIs</h4>
+              <h3>3D ENVIRONMENT ART</h3>
+              <h4>Building Immersive Worlds</h4>
               <p>
-                Crafting performant, responsive interfaces with modern frameworks.
-                From SPAs to micro-frontends, I deliver pixel-perfect experiences.
+                Crafting detailed, cinematic environments with modular asset
+                pipelines. From world-building to PBR rendering, I deliver
+                production-ready 3D scenes optimized for games and film.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">React.js</div>
-                <div className="what-tags">Angular</div>
-                <div className="what-tags">Next.js</div>
-                <div className="what-tags">TypeScript</div>
-                <div className="what-tags">JavaScript</div>
-                <div className="what-tags">Material UI</div>
-                <div className="what-tags">HTML5</div>
-                <div className="what-tags">CSS3</div>
+                <div className="what-tags">Maya</div>
+                <div className="what-tags">Unreal Engine 5</div>
+                <div className="what-tags">Substance Painter</div>
+                <div className="what-tags">V-Ray</div>
+                <div className="what-tags">PBR Workflow</div>
+                <div className="what-tags">UV Mapping</div>
+                <div className="what-tags">Lighting</div>
+                <div className="what-tags">ZBrush</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -126,22 +127,23 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>BACKEND</h3>
-              <h4>Scalable Server Architecture</h4>
+              <h3>VFX & COMPOSITING</h3>
+              <h4>Dynamic Visual Effects</h4>
               <p>
-                Designing robust APIs and microservices. From CMS platforms to
-                complex business logic, I build backends that scale.
+                Creating stunning particle simulations, CG integrations, and
+                real-time VFX. From Niagara systems in Unreal to multi-pass
+                compositing in Nuke, I bring shots to life.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">Node.js</div>
-                <div className="what-tags">NestJS</div>
-                <div className="what-tags">Express.js</div>
-                <div className="what-tags">MongoDB</div>
-                <div className="what-tags">PostgreSQL</div>
-                <div className="what-tags">REST APIs</div>
-                <div className="what-tags">Microservices</div>
-                <div className="what-tags">Python</div>
+                <div className="what-tags">Houdini</div>
+                <div className="what-tags">Nuke</div>
+                <div className="what-tags">Niagara VFX</div>
+                <div className="what-tags">After Effects</div>
+                <div className="what-tags">Pyro FX</div>
+                <div className="what-tags">FLIP Fluids</div>
+                <div className="what-tags">Matte Painting</div>
+                <div className="what-tags">ACES Pipeline</div>
               </div>
               <div className="what-arrow"></div>
             </div>

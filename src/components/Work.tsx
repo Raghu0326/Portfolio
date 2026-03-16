@@ -5,34 +5,28 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "Solid Starters",
-    category: "Low-Code Platform",
-    tools: "Angular, Next.js, NestJS, MongoDB",
-    image: "/images/Solidx.png",
+    title: "Unholy Game Jam",
+    category: "Game Art Direction",
+    tools: "Unreal Engine, Maya, Lighting, Animation",
+    image: "/images/placeholder.webp",
   },
   {
-    title: "Radix",
-    category: "E-Commerce",
-    tools: "Angular, Next.js, NestJS, CMS",
-    image: "/images/radix.png",
+    title: "Fighter Jet Combat",
+    category: "VFX / Compositing",
+    tools: "Houdini, Nuke, Unreal Engine, Motion Trails",
+    image: "/images/placeholder.webp",
   },
   {
-    title: "Bond Cancellation",
-    category: "Import-Export Automation",
-    tools: "Angular, Next.js, NestJS, Workflows",
-    image: "/images/bond.png",
+    title: "Urban Alleyway",
+    category: "3D Environment",
+    tools: "Maya, Substance Painter, Unreal Engine 5, PBR",
+    image: "/images/placeholder.webp",
   },
   {
-    title: "Sapphire",
-    category: "CRM Platform",
-    tools: "AngularJS, NestJS, PostgreSQL",
-    image: "/images/sapphire.png",
-  },
-  {
-    title: "Mpro",
-    category: "Insurance Platform",
-    tools: "React.js, Node.js, Microservices",
-    image: "/images/Maxlife.png",
+    title: "In Warzone",
+    category: "VFX Sequence",
+    tools: "Camera Tracking, Matte Painting, Keying, Nuke",
+    image: "/images/placeholder.webp",
   },
 ];
 

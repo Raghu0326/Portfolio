@@ -15,43 +15,57 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Full Stack Developer</h4>
-                <h5>Ikshan</h5>
-              </div>
-              <h3>2020</h3>
-            </div>
-            <p>
-              Built 6+ complete applications using React.js. Integrated backend
-              authentication using Node.js & MongoDB. Created responsive UI/UX
-              and designed wireframes using Figma.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Senior Full Stack Developer</h4>
-                <h5>Monocept (Max Life Insurance)</h5>
+                <h4>Creator Associate</h4>
+                <h5>Inox Cinemas — India</h5>
               </div>
               <h3>2021</h3>
             </div>
             <p>
-              Led two development teams on Mpro, a large-scale insurance
-              operations platform. Developed multiple modules using React.js &
-              migrated critical functionalities to Node.js microservices.
+              Designed promotional 3D and motion visuals, collaborating with
+              marketing teams to present films with immersive visual assets.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Full Stack Developer</h4>
-                <h5>Logic Loop</h5>
+                <h4>Business Development Team Member</h4>
+                <h5>Asiec India — Surat, India</h5>
               </div>
-              <h3>NOW</h3>
+              <h3>2021</h3>
             </div>
             <p>
-              Building Solid, a proprietary low-code platform using Angular,
-              Next.js & NestJS. Delivering production-ready CMS-based projects
-              including e-commerce, CRM, and import-export automation systems.
+              Collaborated with cross-functional teams to develop and implement
+              business growth strategies. Tailored visual and marketing content
+              creation for digital campaigns, building experience in creative
+              branding and communication.
+            </p>
+          </div>
+          <div className="career-info-box">
+            <div className="career-info-in">
+              <div className="career-role">
+                <h4>CEO & Founder</h4>
+                <h5>Cold Wave Beverages — India</h5>
+              </div>
+              <h3>2021 – 2024</h3>
+            </div>
+            <p>
+              Founded Cold Wave Beverages at age 18, leading brand creation,
+              product development, and early market launch. Managed end-to-end
+              operations including packaging design, supplier coordination,
+              budgeting, and small-scale distribution.
+            </p>
+          </div>
+          <div className="career-info-box">
+            <div className="career-info-in">
+              <div className="career-role">
+                <h4>B.S. Computer Animation</h4>
+                <h5>Full Sail University — Winter Park, FL</h5>
+              </div>
+              <h3>2025</h3>
+            </div>
+            <p>
+              Key coursework: Environment Design, Lighting, Rendering,
+              Compositing, Animation, Real-Time Engines.
             </p>
           </div>
         </div>

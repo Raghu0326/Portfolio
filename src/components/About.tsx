@@ -6,11 +6,13 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          Full Stack Developer with 4+ years of experience building scalable web
-          applications using React.js, Angular, Next.js, Node.js, and NestJS. Skilled
-          in microservices architecture, CMS development, and low-code platforms.
-          Passionate about creating high-performance, production-ready solutions
-          from concept to deployment.
+          Creative and technically driven 3D Environment & VFX Artist with strong
+          experience in Maya, Houdini, Unreal Engine, V-Ray, Nuke compositing,
+          and real-time visual effects. Skilled in environment modeling, lighting,
+          world-building, particle simulations, and CG integration for cinematic
+          and VFX pipeline, game-ready projects. Passionate about crafting
+          immersive worlds, dynamic effects, and polished final shots using
+          industry-standard pipelines and tools.
         </p>
       </div>
     </div>
