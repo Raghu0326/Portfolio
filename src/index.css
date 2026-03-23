@@ -129,9 +129,6 @@ body {
 }
 
 @media screen and (max-width: 900px) {
-  .techstack {
-    margin-bottom: 0;
-  }
   .techstack h2 {
     font-size: 40px;
   }
