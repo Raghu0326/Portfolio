@@ -15,44 +15,25 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Creator Associate</h4>
-                <h5>Inox Cinemas — India</h5>
-              </div>
-              <h3>2021</h3>
-            </div>
-            <p>
-              Designed promotional 3D and motion visuals, collaborating with
-              marketing teams to present films with immersive visual assets.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Business Development Team Member</h4>
-                <h5>Asiec India — Surat, India</h5>
-              </div>
-              <h3>2021</h3>
-            </div>
-            <p>
-              Collaborated with cross-functional teams to develop and implement
-              business growth strategies. Tailored visual and marketing content
-              creation for digital campaigns, building experience in creative
-              branding and communication.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>CEO & Founder</h4>
+                <h4>CEO & Co-Founder</h4>
                 <h5>Cold Wave Beverages — India</h5>
               </div>
-              <h3>2021 – 2024</h3>
+              <h3>Apr 2021 – Aug 2023</h3>
             </div>
             <p>
-              Founded Cold Wave Beverages at age 18, leading brand creation,
-              product development, and early market launch. Managed end-to-end
-              operations including packaging design, supplier coordination,
-              budgeting, and small-scale distribution.
+              Founded a consumer beverage brand at 18, owning product vision, branding, supplier coordination, and go-to-market strategy. Managed end-to-end operations balancing creative direction, production logistics, and financial planning through initial launch.
+            </p>
+          </div>
+          <div className="career-info-box">
+            <div className="career-info-in">
+              <div className="career-role">
+                <h4>Behind-the-Scenes Tour Guide</h4>
+                <h5>Full Sail University — Winter Park, FL</h5>
+              </div>
+              <h3>Jun 2024 – Oct 2025</h3>
+            </div>
+            <p>
+              Conducted 30+ official campus tours achieving an average visitor satisfaction rating of 4.8/5. Developed strong storytelling and communication skills — 90%+ of participants rated the experience positively.
             </p>
           </div>
           <div className="career-info-box">
@@ -66,6 +47,18 @@ const Career = () => {
             <p>
               Key coursework: Environment Design, Lighting, Rendering,
               Compositing, Animation, Real-Time Engines.
+            </p>
+          </div>
+          <div className="career-info-box">
+            <div className="career-info-in">
+              <div className="career-role">
+                <h4>Freelance 3D & VFX Artist</h4>
+                <h5>Independent Studios & Creators</h5>
+              </div>
+              <h3>Dec 2025 – Present</h3>
+            </div>
+            <p>
+              Providing environment art, Niagara VFX, and NukeX compositing services to indie game studios and content creators. Managing full project ownership from brief to final delivery — asset creation, simulations, and multi-pass compositing.
             </p>
           </div>
         </div>

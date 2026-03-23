@@ -4,7 +4,7 @@ import {
 } from "react-icons/fa6";
 import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 import HoverLinks from "./HoverLinks";
 
 const SocialIcons = () => {
@@ -68,7 +68,7 @@ const SocialIcons = () => {
           </a>
         </span>
       </div>
-      <a className="resume-button" href="#">
+      <a className="resume-button" href="/docs/Om_Hirpara_Resume.pdf" target="_blank" rel="noopener noreferrer">
         <HoverLinks text="RESUME" />
         <span>
           <TbNotes />
@@ -78,4 +78,4 @@ const SocialIcons = () => {
   );
 };
 
-export default SocialIcons;
+export default memo(SocialIcons);

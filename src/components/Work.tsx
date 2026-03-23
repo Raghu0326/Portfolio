@@ -2,35 +2,11 @@ import { useState, useCallback } from "react";
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
-
-const projects = [
-  {
-    title: "Unholy Game Jam",
-    category: "Game Art Direction",
-    tools: "Unreal Engine, Maya, Lighting, Animation",
-    image: "/images/placeholder.webp",
-  },
-  {
-    title: "Fighter Jet Combat",
-    category: "VFX / Compositing",
-    tools: "Houdini, Nuke, Unreal Engine, Motion Trails",
-    image: "/images/placeholder.webp",
-  },
-  {
-    title: "Urban Alleyway",
-    category: "3D Environment",
-    tools: "Maya, Substance Painter, Unreal Engine 5, PBR",
-    image: "/images/placeholder.webp",
-  },
-  {
-    title: "In Warzone",
-    category: "VFX Sequence",
-    tools: "Camera Tracking, Matte Painting, Keying, Nuke",
-    image: "/images/placeholder.webp",
-  },
-];
+import { Link, useNavigate } from "react-router-dom";
+import { projects } from "../data/projects";
 
 const Work = () => {
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -106,9 +82,21 @@ const Work = () => {
                           <span className="tools-label">Tools & Features</span>
                           <p>{project.tools}</p>
                         </div>
+                        <div className="project-link-wrapper" style={{ marginTop: '25px' }}>
+                          <Link to={`/work/${project.id}`} style={{ 
+                            display: 'inline-block', 
+                            padding: '12px 28px', 
+                            backgroundColor: '#fff', 
+                            color: '#000', 
+                            textDecoration: 'none', 
+                            borderRadius: '50px', 
+                            fontWeight: '600',
+                            transition: 'all 0.3s ease'
+                          }}>View Details</Link>
+                        </div>
                       </div>
                     </div>
-                    <div className="carousel-image-wrapper">
+                    <div className="carousel-image-wrapper" style={{ cursor: 'pointer' }} onClick={() => navigate(`/work/${project.id}`)}>
                       <WorkImage image={project.image} alt={project.title} />
                     </div>
                   </div>
