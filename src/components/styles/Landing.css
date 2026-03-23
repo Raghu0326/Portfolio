@@ -109,23 +109,41 @@
 .character-model {
   height: 80%;
   height: 80vh;
-  position: fixed;
+  position: absolute;
   max-width: 1920px;
   max-height: 1080px;
   transform: translateX(-50%);
   width: 100%;
   left: 50%;
-  z-index: 11;
-  bottom: 0;
+  z-index: 0;
+  bottom: 50px;
   pointer-events: inherit;
 }
 
 .character-model::after {
-  display: none;
+  content: "";
+  width: 100vw;
+  height: 250px;
+  background-image: linear-gradient(to bottom,
+      transparent,
+      var(--backgroundColor) 70%);
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+  position: absolute;
 }
 
 .character-model::before {
-  display: none;
+  content: "";
+  width: 100vw;
+  height: 700px;
+  background-color: var(--backgroundColor);
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+  position: absolute;
 }
 
 .character-loaded .character-rim {
