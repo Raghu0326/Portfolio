@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { useRef, useMemo, useState, useEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
 import { EffectComposer, N8AO } from "@react-three/postprocessing";
 import {
@@ -114,6 +114,8 @@ function SphereGeo({
 }: SphereProps) {
   const api = useRef<RapierRigidBody | null>(null);
 
+  const { viewport } = useThree();
+
   // Define target grid position (7 unique logos in 2 rows, rest drop off screen)
   const targetPos = useMemo(() => {
     if (index >= LOGO_COUNT) {
@@ -121,15 +123,28 @@ function SphereGeo({
       return new THREE.Vector3(0, -50, 0);
     }
 
-    // 4 balls on top row, 3 balls on bottom row
-    if (index < 4) {
-      // Row 1 (indices 0, 1, 2, 3) 
-      return new THREE.Vector3((index - 1.5) * 3.0, 1.5, 0);
+    if (viewport.width < 8) {
+      // Mobile vertical! 2 balls per row -> 4 rows (2, 2, 2, 1)
+      if (index < 2) return new THREE.Vector3((index - 0.5) * 2.2, 4.0, 0);
+      if (index < 4) return new THREE.Vector3((index - 2.5) * 2.2, 1.0, 0);
+      if (index < 6) return new THREE.Vector3((index - 4.5) * 2.2, -2.0, 0);
+      return new THREE.Vector3(0, -5.0, 0);
+    } else if (viewport.width < 12) {
+      // Tablet! 3 balls per row -> (3, 3, 1)
+      if (index < 3) return new THREE.Vector3((index - 1) * 2.6, 3.0, 0);
+      if (index < 6) return new THREE.Vector3((index - 4) * 2.6, -0.5, 0);
+      return new THREE.Vector3(0, -4.0, 0);
     } else {
-      // Row 2 (indices 4, 5, 6)
-      return new THREE.Vector3((index - 5) * 3.0, -1.8, 0);
+      // 4 balls on top row, 3 balls on bottom row
+      if (index < 4) {
+        // Row 1 (indices 0, 1, 2, 3) 
+        return new THREE.Vector3((index - 1.5) * 3.0, 1.5, 0);
+      } else {
+        // Row 2 (indices 4, 5, 6)
+        return new THREE.Vector3((index - 5) * 3.0, -1.8, 0);
+      }
     }
-  }, [index]);
+  }, [index, viewport.width]);
 
   const targetQuat = useMemo(() => new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, 0)), []);
 
@@ -267,12 +282,12 @@ const TechStack = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY || document.documentElement.scrollTop;
-      const workEl = document.getElementById("work");
-      if (workEl) {
-        const threshold = workEl.getBoundingClientRect().top;
-        setIsActive(scrollY > threshold);
+      const techStackEl = document.querySelector(".techstack");
+      if (techStackEl) {
+        const rect = techStackEl.getBoundingClientRect();
+        setIsActive(rect.top < window.innerHeight);
       } else {
+        const scrollY = window.scrollY || document.documentElement.scrollTop;
         setIsActive(scrollY > 500);
       }
     };
