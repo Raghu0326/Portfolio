@@ -106,8 +106,7 @@
 }
 
 .character-model {
-  height: 80%;
-  height: 80vh;
+  height: 100vh;
   position: fixed;
   max-width: 1920px;
   max-height: 1080px;
@@ -120,10 +119,30 @@
 }
 
 .character-model::after {
+  content: "";
+  width: 100vw;
+  height: 250px;
+  background-image: linear-gradient(to bottom,
+      transparent,
+      var(--backgroundColor) 70%);
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+  position: absolute;
   display: none;
 }
 
 .character-model::before {
+  content: "";
+  width: 100vw;
+  height: 700px;
+  background-color: var(--backgroundColor);
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+  position: absolute;
   display: none;
 }
 
@@ -244,9 +263,6 @@ h2.landing-info-h2 {
     display: block;
   }
 
-  .character-model {
-    z-index: 0;
-  }
 
   .landing-info h3 {
     font-size: 18px;
@@ -272,9 +288,6 @@ h2.landing-info-h2 {
 }
 
 @media screen and (min-width: 768px) {
-  .character-model {
-    height: 80vh;
-  }
 
   .landing-intro h2 {
     font-size: 25px;
@@ -300,17 +313,6 @@ h2.landing-info-h2 {
 }
 
 @media screen and (min-width: 1025px) {
-  .character-model {
-    height: 100vh;
-    bottom: 0;
-    z-index: 11;
-    position: fixed;
-  }
-
-  .character-model::after,
-  .character-model::before {
-    display: none;
-  }
 
   .landing-intro {
     top: 50%;
