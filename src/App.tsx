@@ -6,10 +6,14 @@ const CharacterModel = lazy(() => import("./components/Character"));
 const MainContainer = lazy(() => import("./components/MainContainer"));
 const ProjectDetails = lazy(() => import("./components/ProjectDetails"));
 import { LoadingProvider } from "./context/LoadingProvider";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
 
 const App = () => {
   return (
     <>
+      <SpeedInsights />
+      <Analytics />
       <LoadingProvider>
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
