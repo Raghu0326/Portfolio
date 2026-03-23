@@ -87,12 +87,10 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>3D ENVIRONMENT ART</h3>
-              <h4>Building Immersive Worlds</h4>
+              <h3>ENVIRONMENT ART</h3>
+              <h4>World-Building & Visual Design</h4>
               <p>
-                Crafting detailed, cinematic environments with modular asset
-                pipelines. From world-building to PBR rendering, I deliver
-                production-ready 3D scenes optimized for games and film.
+                Designing and crafting immersive environments that support mood, scale, and storytelling. Focused on building visually compelling worlds with strong composition, atmosphere, detail, and presentation for cinematic and interactive experiences.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
@@ -128,11 +126,9 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
             <div className="what-content-in">
               <h3>VFX & COMPOSITING</h3>
-              <h4>Dynamic Visual Effects</h4>
+              <h4>Effects, Integration & Final Polish</h4>
               <p>
-                Creating stunning particle simulations, CG integrations, and
-                real-time VFX. From Niagara systems in Unreal to multi-pass
-                compositing in Nuke, I bring shots to life.
+                Creating dynamic visual effects and polished final imagery that enhance motion, energy, and visual impact. Blending effects work, compositing, and shot polish to create sequences that feel cinematic, cohesive, and visually strong.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">

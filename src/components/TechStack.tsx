@@ -306,7 +306,7 @@ const TechStack = () => {
   return (
     <div className="techstack">
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '6vh', position: 'relative', zIndex: 10, pointerEvents: 'none' }}>
-        <h2 style={{ pointerEvents: 'auto' }}> My Toolbox</h2>
+        <h2 style={{ pointerEvents: 'auto' }}>MY TOOLBOX</h2>
         <button
           onClick={() => setIsLinedUp(!isLinedUp)}
           style={{

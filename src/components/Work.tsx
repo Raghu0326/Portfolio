@@ -79,7 +79,7 @@ const Work = () => {
                           {project.category}
                         </p>
                         <div className="carousel-tools">
-                          <span className="tools-label">Tools & Features</span>
+                          <span className="tools-label">TOOLS & FEATURES</span>
                           <p>{project.tools}</p>
                         </div>
                         <div className="project-link-wrapper" style={{ marginTop: '25px' }}>
