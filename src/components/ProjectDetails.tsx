@@ -23,7 +23,7 @@ const ProjectDetails = () => {
   }
 
   return (
-    <div className="project-details-container section-container">
+    <div className="project-details-container">
       <Link to="/" className="back-btn"><MdArrowBack /> Back to Home</Link>
       
       <div className="project-header">

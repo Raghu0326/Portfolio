@@ -4,12 +4,20 @@ import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import "./styles/Navbar.css";
+import { useLoading } from "../context/LoadingProvider";
+import { initialFX } from "./utils/initialFX";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 export let smoother: ScrollSmoother;
 
 const Navbar = () => {
+  const { isLoading } = useLoading();
+
   useEffect(() => {
+    if (smoother) {
+      smoother.kill();
+    }
+
     smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",
@@ -21,7 +29,16 @@ const Navbar = () => {
     });
 
     smoother.scrollTop(0);
-    smoother.paused(true);
+    
+    let fxTimeout: ReturnType<typeof setTimeout>;
+
+    if (isLoading) {
+      smoother.paused(true);
+    } else {
+      fxTimeout = setTimeout(() => {
+        initialFX();
+      }, 100);
+    }
 
     let links = document.querySelectorAll(".header ul a");
     links.forEach((elem) => {
@@ -35,10 +52,21 @@ const Navbar = () => {
         }
       });
     });
-    window.addEventListener("resize", () => {
+
+    const handleResize = () => {
       ScrollSmoother.refresh(true);
-    });
-  }, []);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      clearTimeout(fxTimeout);
+      window.removeEventListener("resize", handleResize);
+      if (smoother) {
+        smoother.kill();
+      }
+    };
+  }, [isLoading]);
   return (
     <>
       <div className="header">

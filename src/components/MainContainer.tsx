@@ -9,6 +9,7 @@ import SocialIcons from "./SocialIcons";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import setSplitText from "./utils/splitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const TechStack = lazy(() => import("./TechStack"));
 
@@ -27,10 +28,8 @@ const MainContainer = ({ children }: PropsWithChildren) => {
     
     return () => {
       window.removeEventListener("resize", resizeHandler);
-      // Clean up all ScrollTriggers on unmount to prevent lag on routing
-      import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      });
+      // Clean up all ScrollTriggers synchronously on unmount to prevent lag and strict-mode race conditions
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [isDesktopView]);
 
