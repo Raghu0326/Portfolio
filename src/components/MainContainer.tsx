@@ -24,8 +24,13 @@ const MainContainer = ({ children }: PropsWithChildren) => {
     };
     resizeHandler();
     window.addEventListener("resize", resizeHandler);
+    
     return () => {
       window.removeEventListener("resize", resizeHandler);
+      // Clean up all ScrollTriggers on unmount to prevent lag on routing
+      import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      });
     };
   }, [isDesktopView]);
 

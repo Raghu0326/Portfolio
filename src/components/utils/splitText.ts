@@ -81,5 +81,7 @@ export default function setSplitText() {
     }
   });
 
-  ScrollTrigger.addEventListener("refresh", () => setSplitText());
+  // Ensure we don't stack multiple event listeners
+  ScrollTrigger.removeEventListener("refresh", setSplitText);
+  ScrollTrigger.addEventListener("refresh", setSplitText);
 }
