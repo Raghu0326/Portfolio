@@ -15,7 +15,7 @@ const Loading = ({ percent }: { percent: number }) => {
     if (percent >= 100 && !loaded) {
       const t1 = setTimeout(() => {
         setLoaded(true);
-      }, 600);
+      }, 200);
       return () => clearTimeout(t1);
     }
   }, [percent, loaded]);
@@ -24,7 +24,7 @@ const Loading = ({ percent }: { percent: number }) => {
     if (loaded && !isLoaded) {
       const t2 = setTimeout(() => {
         setIsLoaded(true);
-      }, 1000);
+      }, 400);
       return () => clearTimeout(t2);
     }
   }, [loaded, isLoaded]);
@@ -35,7 +35,7 @@ const Loading = ({ percent }: { percent: number }) => {
       setClicked(true);
       t3 = setTimeout(() => {
         setIsLoading(false);
-      }, 900);
+      }, 600);
     }
     return () => clearTimeout(t3);
   }, [isLoaded, setIsLoading]);
