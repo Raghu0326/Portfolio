@@ -32,15 +32,10 @@ const Loading = ({ percent }: { percent: number }) => {
   useEffect(() => {
     let t3: ReturnType<typeof setTimeout>;
     if (isLoaded) {
-      import("./utils/initialFX").then((module) => {
-        setClicked(true);
-        t3 = setTimeout(() => {
-          if (module.initialFX) {
-            module.initialFX();
-          }
-          setIsLoading(false);
-        }, 900);
-      });
+      setClicked(true);
+      t3 = setTimeout(() => {
+        setIsLoading(false);
+      }, 900);
     }
     return () => clearTimeout(t3);
   }, [isLoaded, setIsLoading]);
