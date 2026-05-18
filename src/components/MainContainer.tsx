@@ -19,11 +19,18 @@ const MainContainer = ({ children }: PropsWithChildren) => {
   );
 
   useEffect(() => {
+    let lastWidth = window.innerWidth;
+
     const resizeHandler = () => {
-      setSplitText();
-      setIsDesktopView(window.innerWidth > 1024);
+      // Only rebuild SplitText and re-evaluate layout if the width actually changes
+      if (window.innerWidth !== lastWidth) {
+        lastWidth = window.innerWidth;
+        setSplitText();
+        setIsDesktopView(window.innerWidth > 1024);
+      }
     };
-    resizeHandler();
+    
+    setSplitText();
     window.addEventListener("resize", resizeHandler);
     
     return () => {
@@ -31,7 +38,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
       // Clean up all ScrollTriggers synchronously on unmount to prevent lag and strict-mode race conditions
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, [isDesktopView]);
+  }, []);
 
   return (
     <div className="container-main">
