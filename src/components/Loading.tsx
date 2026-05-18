@@ -33,6 +33,13 @@ const Loading = ({ percent }: { percent: number }) => {
     let t3: ReturnType<typeof setTimeout>;
     if (isLoaded) {
       setClicked(true);
+      
+      // Trigger main page fade-in concurrently with loading screen fade-out
+      const mainElements = document.getElementsByTagName("main");
+      if (mainElements.length > 0) {
+        mainElements[0].classList.add("main-active");
+      }
+      
       t3 = setTimeout(() => {
         setIsLoading(false);
       }, 600);
@@ -66,7 +73,7 @@ const Loading = ({ percent }: { percent: number }) => {
           </div>
         </div>
       </div>
-      <div className="loading-screen">
+      <div className={`loading-screen ${clicked && "screen-fade-out"}`}>
         <div className="loading-marquee">
           <Marquee>
             <span> 3D VFX Artist</span> <span>Environment Artist</span>
