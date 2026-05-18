@@ -264,6 +264,26 @@ function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
 const TechStack = () => {
   const [isActive, setIsActive] = useState(false);
   const [isLinedUp, setIsLinedUp] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShouldRender(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "1000px" } // Pre-load when within 1000px
+    );
+    
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+    
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -304,7 +324,7 @@ const TechStack = () => {
   }, []);
 
   return (
-    <div className="techstack">
+    <div className="techstack" ref={containerRef}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '6vh', position: 'relative', zIndex: 10, pointerEvents: 'none' }}>
         <h2 style={{ pointerEvents: 'auto' }}>MY TOOLBOX</h2>
         <button
@@ -330,52 +350,54 @@ const TechStack = () => {
         </button>
       </div>
 
-      <Canvas
-        shadows
-        dpr={[1, 1.5]}
-        gl={{ alpha: true, stencil: false, depth: false, antialias: false, powerPreference: "high-performance" }}
-        camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
-        onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
-        className="tech-canvas"
-      >
-        <ambientLight intensity={1} />
-        <spotLight
-          position={[20, 20, 25]}
-          penumbra={1}
-          angle={0.2}
-          color="white"
-          castShadow
-          shadow-mapSize={[512, 512]}
-        />
-        <directionalLight position={[0, 5, -4]} intensity={2} />
-        <Physics gravity={[0, 0, 0]}>
-          <Pointer isActive={isActive && !isLinedUp} />
-          {Array.from({ length: TOTAL_SPHERES }).map((_, i) => {
-            const logoIndex = i % LOGO_COUNT;
-            return (
-              <SphereGeo
-                key={i}
-                index={i}
-                scale={sphereScales[i]}
-                startPosition={spherePositions[i]}
-                material={material}
-                texture={textures[logoIndex]}
-                decalScale={logoEntries[logoIndex].decalScale}
-                isActive={isActive}
-                isLinedUp={isLinedUp}
-              />
-            );
-          })}
-        </Physics>
-        <Environment
-          files="/models/char_enviorment.hdr"
-          environmentIntensity={0.5}
-          environmentRotation={[0, 4, 2]}
-        />
-        <EffectComposer enableNormalPass={false}>
-          <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
-        </EffectComposer>
-      </Canvas>
+      {shouldRender && (
+        <Canvas
+          shadows
+          dpr={[1, 1.5]}
+          gl={{ alpha: true, stencil: false, depth: false, antialias: false, powerPreference: "high-performance" }}
+          camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
+          onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
+          className="tech-canvas"
+        >
+          <ambientLight intensity={1} />
+          <spotLight
+            position={[20, 20, 25]}
+            penumbra={1}
+            angle={0.2}
+            color="white"
+            castShadow
+            shadow-mapSize={[512, 512]}
+          />
+          <directionalLight position={[0, 5, -4]} intensity={2} />
+          <Physics gravity={[0, 0, 0]}>
+            <Pointer isActive={isActive && !isLinedUp} />
+            {Array.from({ length: TOTAL_SPHERES }).map((_, i) => {
+              const logoIndex = i % LOGO_COUNT;
+              return (
+                <SphereGeo
+                  key={i}
+                  index={i}
+                  scale={sphereScales[i]}
+                  startPosition={spherePositions[i]}
+                  material={material}
+                  texture={textures[logoIndex]}
+                  decalScale={logoEntries[logoIndex].decalScale}
+                  isActive={isActive}
+                  isLinedUp={isLinedUp}
+                />
+              );
+            })}
+          </Physics>
+          <Environment
+            files="/models/char_enviorment.hdr"
+            environmentIntensity={0.5}
+            environmentRotation={[0, 4, 2]}
+          />
+          <EffectComposer enableNormalPass={false}>
+            <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
+          </EffectComposer>
+        </Canvas>
+      )}
     </div>
   );
 };
